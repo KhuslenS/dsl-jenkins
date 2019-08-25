@@ -14,13 +14,16 @@ pipeline{
         }
         stage("Install Terraform in /tmp")
             steps{
-              sh '''
-              cd /tmp
-              yum install wget -y
-              wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip
-              unzip terraform_0.12.7_linux_amd64.zip
-              mv terraform /bin
-              '''
+              ws("/tmp"){
+                sh "pwd"
+              }
+              // cd /tmp
+              // yum install wget -y
+              // wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip
+              // unzip terraform_0.12.7_linux_amd64.zip
+              // mv terraform /bin
+
+            }
             }
     }
 }
