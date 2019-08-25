@@ -32,7 +32,7 @@ pipeline{
             steps{
                 ws("tmp/"){
                     writeFile
-                        text: "Test"
+                        text: "Test",
                         file: "Testfile"
                 }
             }
