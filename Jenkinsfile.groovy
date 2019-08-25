@@ -42,12 +42,12 @@ pipeline{
                         def exists = fileExists 'packer_1.4.3_linux_amd64.zip'
                         if (exists) {
                             sh "unzip -o packer_1.4.3_linux_amd64.zip"
-                            sh "sudo mv packer /bin"
+                            sh "sudo mv packer /sbin"
                             sh "packer version"
                         } else {
                             sh "wget https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip"
                             sh "unzip -o packer_1.4.3_linux_amd64.zip"
-                            sh "sudo mv packer /bin"
+                            sh "sudo mv packer /sbin"
                             sh "packer version"
                         }
                     }
