@@ -62,7 +62,7 @@ pipeline{
         }
         stage("Build Image"){
             steps{
-                sh "packer image build updated/updated.json"
+                sh "packer image build Packer/updated/updated.json"
             }
         }
     }
