@@ -65,5 +65,11 @@ pipeline{
                 sh "packer build updated/updated.json"
             }
         }
+
     }
+    post{
+      success {
+          mail to:  farrukhsadykov@gmail.com, subject: “job”, body: “job completed
+  }
+}
 }
