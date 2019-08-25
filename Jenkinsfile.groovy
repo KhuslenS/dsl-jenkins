@@ -5,8 +5,8 @@ pipeline{
             steps{
               sh '''
               echo Hello
-              yum  install httpd -y
-              ping 8.8.8.8
+              sudo yum  install httpd -y
+              sudo ping 8.8.8.8
               '''
             }
         }
