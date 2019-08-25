@@ -6,7 +6,7 @@ pipeline{
               sh '''
               set +xe
               echo Hello
-              sudo yum  install httpd wget -y
+              sudo yum  install httpd wget unzip -y
               '''
             }
         }
