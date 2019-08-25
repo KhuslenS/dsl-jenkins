@@ -10,7 +10,7 @@ pipeline{
               '''
             }
         }
-        stage("Install Terraform in /tmp")
+        stage("Install Terraform in /tmp"){
             steps{
               ws("tmp/"){
                 sh "pwd"
