@@ -42,18 +42,22 @@ pipeline{
                         def exists = fileExists 'packer_1.4.3_linux_amd64.zip'
                         if (exists) {
                             sh "unzip -o packer_1.4.3_linux_amd64.zip"
-                            sh "rm -rf /sbin/packer"
                             sh "sudo mv packer /bin"
                             sh "packer version"
                         } else {
                             sh "wget https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip"
-                            sh "rm -rf /sbin/packer"
                             sh "unzip -o packer_1.4.3_linux_amd64.zip"
                             sh "sudo mv packer /bin"
                             sh "packer version"
                         }
                     }
                 }
+            }
+        }
+        stage("Pull Repo"){
+            steps{
+                git("https://github.com/Khuslentuguldur/Packer.git")
+                sh "ls"
             }
         }
     }
