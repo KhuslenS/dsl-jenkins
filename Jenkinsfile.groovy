@@ -66,11 +66,19 @@ pipeline{
                 sh "ls"
             }
         }
-        stage("build VPC"){
+        stage("Clone VPC repo"){
             steps{
-                ws("terraform"){
+                ws("terraform/"){
                     git "https://github.com/Khuslentuguldur/infrastructure-terraform.git"
-                    sh "pwd"
+
+                }
+            }
+        }
+        stage("Terraform "){
+            steps{
+                ws("terraform/"){
+                    sh "terraform plan -var-file=dev.tfvars"
+
                 }
             }
         }
