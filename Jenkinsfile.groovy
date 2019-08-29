@@ -74,11 +74,25 @@ pipeline{
                 }
             }
         }
-        stage("Terraform "){
+        stage("Get module  "){
+            steps{
+                ws("terraform/"){
+                    sh "terraform get"
+
+                }
+            }
+        }
+        stage("Initialize Terraform "){
             steps{
                 ws("terraform/"){
                     sh "terraform init"
-                    sh "terraform plan -var-file=dev.tfvars"
+                }
+            }
+        }
+        stage("Terraform Plan "){
+            steps{
+                ws("terraform/"){
+                    sh "terraform ${USER_ACTION} -var-file=dev.tfvars "
 
                 }
             }
