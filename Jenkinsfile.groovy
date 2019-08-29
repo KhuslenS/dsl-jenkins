@@ -77,6 +77,7 @@ pipeline{
         stage("Terraform "){
             steps{
                 ws("terraform/"){
+                    sh "terraform init"
                     sh "terraform plan -var-file=dev.tfvars"
 
                 }
