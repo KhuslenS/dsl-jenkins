@@ -14,15 +14,15 @@ pipeline{
             steps{
                 ws("tmp/"){
                     script {
-                        def exists = fileExists 'terraform_0.12.7_linux_amd64.zip'
+                        def exists = fileExists 'terraform_0.11.9_linux_amd64.zip'
                         if (exists) {
-                            sh "unzip -o terraform_0.12.7_linux_amd64.zip"
-                            sh "sudo mv terraform /bin"
+                            sh "unzip -o terraform_0.11.9_linux_amd64.zip"
+                            sh "sudo mv -f terraform /bin"
                             sh "terraform version"
                         } else {
-                            sh "wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip"
-                            sh "unzip -o terraform_0.12.7_linux_amd64.zip"
-                            sh "sudo mv terraform /bin"
+                            sh "wget https://releases.hashicorp.com/terraform/0.11.9/terraform_0.11.9_linux_amd64.zip"
+                            sh "unzip -o terraform_0.11.9_linux_amd64.zip"
+                            sh "sudo mv -f terraform /bin"
                         }
                     }
                 }
@@ -42,12 +42,12 @@ pipeline{
                         def exists = fileExists 'packer_1.4.3_linux_amd64.zip'
                         if (exists) {
                             sh "unzip -o packer_1.4.3_linux_amd64.zip"
-                            sh "sudo mv packer /sbin"
+                            sh "sudo mv -f packer /sbin"
                             sh "packer version"
                         } else {
                             sh "wget https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip"
                             sh "unzip -o packer_1.4.3_linux_amd64.zip"
-                            sh "sudo mv packer /sbin"
+                            sh "sudo mv -f packer /sbin"
                             sh "packer version"
                         }
                     }
