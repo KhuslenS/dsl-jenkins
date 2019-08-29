@@ -66,6 +66,14 @@ pipeline{
                 sh "ls"
             }
         }
+        stage("build VPC"){
+            steps{
+                ws("terraform"){
+                    git "https://github.com/Khuslentuguldur/infrastructure-terraform.git"
+                    sh "pwd"
+                }
+            }
+        }
 
     }
     post{
